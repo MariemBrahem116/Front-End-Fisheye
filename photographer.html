@@ -8,7 +8,7 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
+    <header class="logo-Header">
       <img src="assets/images/logo.png" class="logo" />
     </header>
     <main id="main">
@@ -22,16 +22,35 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
+        <form class="modal-form" id="contact">
+          <div class="formData " data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
+          <label for="prenom">Prénom</label>
+          <input class="firstName-inp" id="prenom" type="text" name="first-Name" />
+          </div>
+          <div class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
+          <label for="nom">Nom</label>
+          <input class="lastName-inp" id="nom" type="text" name="last-Name" />
+          </div>
+          <div class="formData" data-error="Vous devez entrer un Email valide !">
+          <label for="email">Email<br /></label>
+          <input class="email-inp" id="email" type="email" name="email" />
+          </div>
+          <div class="formData" data-error="Vous devez remplir cette case!">
+          <label for="msg">Votre Message<br /></label>
+          <input class="msg-inp" id="msg" name="message"/>
+         </div>
+          <button class="contact_button" type="submit" value="Envoyer" name="Email">
+              Envoyer
+          </button>
+        </form>
+        <div class="confirm-message">
+          <p>Merci pour<br>votre inscription</p>
+          <input  class="close-btn button" id="close" type="button" value="fermer">
+        </div>
+    </div>
 		</div>
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

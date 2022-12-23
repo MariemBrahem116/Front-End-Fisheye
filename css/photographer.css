@@ -19,12 +19,16 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
-
+.contact_button:hover{
+    background-color: #D3573C;
+    color:black;
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,7 +69,6 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
 }
 
 form input {
@@ -73,4 +76,32 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 25px;
 }
+.msg-inp{
+    height: 168px;
+}
+.formData[data-error]::after {
+    content: attr(data-error);
+    margin-top: 5px;
+    font-size: 0.9em;
+    color:#901C1C;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .text-control {
+    border: 2px solid #e54858;
+  }
+  input[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: red;
+  } 
