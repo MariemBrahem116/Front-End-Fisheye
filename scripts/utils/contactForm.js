@@ -5,15 +5,11 @@ const confirmMessage = document.querySelector(".confirm-message");
 const containerInput = document.querySelectorAll(".formData");
 function displayModal() {
 	modal.style.display = "block";
-    photgraphHeader.style.display = "none";
-    logoHeader.style.display = "none";
     confirmMessage.style.display = "none";
 }
 
 function closeModal() { 
     modal.style.display = "none";
-    photgraphHeader.style.display = "block";
-    logoHeader.style.display = "block";
 }
 //Accéder à toutes les entrées et paramétrer la validation
 //Indiquer si l'expression régulière trouve une correspondance dans la chaîne d'entrée
@@ -67,7 +63,6 @@ const inputs = {
             switch (input) {
                 case "firstname":
                     if (!this.nameValidation(this.inputs[input].element, this.inputs[input].regex)) {
-                        console.log(this.inputs[input].regex)
                         this.inputs[input].element.parentNode.setAttribute("data-error-visible", true);
                         this.valid = false;
                     }

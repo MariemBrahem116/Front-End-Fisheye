@@ -1,8 +1,9 @@
 
-function photographerFactory(photographer) {
+export default function photographerFactory(photographer) {
+    const main = document.querySelector("#main");
     const linkToPage = "photographer.html?id=" + photographer.id;
     const linkToPhoto =
-        "./assets/photographers/" + photographer.portrait;
+        "./assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait;
     const cardPhotographer = document.querySelector(".photographer_section");
     const cardPhtographers = document.createElement("div")
     const cardLink = document.createElement("a");
@@ -23,7 +24,6 @@ function photographerFactory(photographer) {
     cardLink.setAttribute("role", "link");
     cardLink.href = linkToPage;
     cardImg.setAttribute("src",linkToPhoto);
-  //  cardImg.alt = "";
     cardTitle.textContent = photographer.name;
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
@@ -39,38 +39,3 @@ function photographerFactory(photographer) {
     cardPhotographer.appendChild(cardPhtographers)
     main.appendChild(cardPhotographer);
 }
-function photographerFactoryID(currentPhotographer) {
-    const main = document.querySelector("#main");
-        const linkToPhoto =
-    "./assets/photographers/" + currentPhotographer.portrait;
-    const photographHeader = document.querySelector(".photograph-header");
-    const btnModal = document.querySelector(".contact_button");
-    //  création des elements html
-    const photographerBody = document.createElement("div");
-    const photographerTitle = document.createElement("h1");
-    const photographerLocation = document.createElement("p");
-    const photographerTagline = document.createElement("p");
-    const photographerImg = document.createElement("img");
-    // ajouts des classes et attributs html
-  
-    photographerBody.classList.add("photographer-body");
-    photographerImg.classList.add("photographer-img");
-    photographerTitle.classList.add("photographer-body-title");
-    photographerLocation.classList.add("photographer-body-location");
-    photographerTagline.classList.add("photographer-body-tagline");
-    photographerImg.src = linkToPhoto;
-    photographerImg.setAttribute("alt", `${currentPhotographer.name}`);
-  
-    photographerTitle.textContent = currentPhotographer.name;
-    photographerLocation.textContent =
-      currentPhotographer.city + " ," + currentPhotographer.country;
-      photographerTagline.textContent = currentPhotographer.tagline;  
-  
-    // ajout des elements dans le DOM
-    photographerBody.appendChild(photographerTitle);
-    photographerBody.appendChild(photographerLocation);
-    photographerBody.appendChild(photographerTagline);
-    photographHeader.appendChild(photographerBody);
-    photographHeader.appendChild(btnModal);
-    main.appendChild(photographHeader);
-  }

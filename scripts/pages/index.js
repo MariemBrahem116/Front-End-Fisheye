@@ -1,3 +1,4 @@
+import photographerFactory from "../factories/photographer.js"; 
 const linkData = "./../data/photographers.json"
         fetch(linkData)
           .then((response) => {
@@ -11,7 +12,7 @@ const linkData = "./../data/photographers.json"
        
       
       function displayPhotographers(photographers) {
-        const main = document.querySelector("#main");
+        
         photographers.forEach ((photographer) => 
         {
             photographerFactory(photographer)
