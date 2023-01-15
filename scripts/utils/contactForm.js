@@ -1,7 +1,7 @@
 const photgraphHeader = document.querySelector(".photograph-header");
 const logoHeader = document.querySelector(".logo-Header");
 const modal = document.getElementById("contact_modal");
-const confirmMessage = document.querySelector(".confirm-message");
+const confirmMessage = document.querySelector(".confirm_Inscription");
 const containerInput = document.querySelectorAll(".formData");
 function displayModal() {
 	modal.style.display = "block";
@@ -28,7 +28,8 @@ const inputs = {
     },
   
     message: {
-        element: document.querySelector("#msg"), 
+        element: document.querySelector("#msg"),
+        regex : /^[a-zA-Z\-éëàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇÆæœ]{2,}$/
     }
   };
   // pour atteindre tous les éléments qui affichent des messages d'erreur pour la validation du formulaire
@@ -45,10 +46,7 @@ const inputs = {
         // vérifier si le mail est valide
         emailValidation = (element, regex) => !regex.test(element.value) ? false : true;
   
-  
-        // vérifier si la case message est vide
-        messageValidation = (element) => element.value == "";
-  
+
     //supprimer les messages d'erreur
     removeErrorMessage = () => {
         this.valid = true;
@@ -83,7 +81,7 @@ const inputs = {
                     break;
   
                 case "message":
-                    if (!this.messageValidation(this.inputs[input].element)) {
+                    if (!this.nameValidation(this.inputs[input].element, this.inputs[input].regex)) {
                         this.inputs[input].element.parentNode.setAttribute("data-error-visible", true);
                         this.valid = false;
                     }

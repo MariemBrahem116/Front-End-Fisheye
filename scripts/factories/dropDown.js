@@ -1,4 +1,4 @@
-export default function displayFilterMenu(displayMediaList) {
+export default function displayFilterMenu(displayPhotographerMedia) {
     const dropDownMenu = document.querySelector(".dropdownMenu ");
     const filterSelect = document.querySelector(".filter-select");
     const filterSelectTrigger = document.querySelector(".filter-select__trigger");
@@ -32,6 +32,7 @@ export default function displayFilterMenu(displayMediaList) {
             ".filter-select__trigger span"
           ).textContent = this.textContent;
           hideDropdown();
+          displayPhotographerMedia();
         }
       });
     }

@@ -6,8 +6,8 @@
     const previous = document.querySelector(".left");
     const titleMedia = document.querySelector(".titre-media-lightbox");
     const mediaImg = document.createElement("img");
-    const mediaVid = document.createElement("video");
-    function displayLightbox(media) { 
+    const videoImg = document.createElement("video");
+    function displayLightbox(media,getMediaPhotographer) { 
     next.addEventListener("click", nextSlide);
     previous.addEventListener("click", previousSlide);
     closeBtn.addEventListener("click", closelightbox);
@@ -25,18 +25,18 @@
   
     function nextSlide(e) {
       e.preventDefault;
-      if (getMediaPhotographer.indexOf(media) + 1 >= getMediaPhotographer.length) {
-        media = getMediaPhotographer[0];
+      if (parseInt(getMediaPhotographer.indexOf(media)) + 1 >= (getMediaPhotographer.length)) {
+        media = getMediaPhotographer + 1;
       } else {
         media =
-        getMediaPhotographer[getMediaPhotographer.indexOf(media) + 1];
+        getMediaPhotographer[parseInt(getMediaPhotographer.indexOf(media)) + 1];
       }
       displayContent(media);
     }
   
     function previousSlide(e) {
       e.preventDefault;
-      if (getMediaPhotographer.indexOf(media) <= +0) {
+      if (getMediaPhotographer.indexOf(media) <= 0) {
         media = getMediaPhotographer[getMediaPhotographer.length - 1];
         displayContent(media);
       } else {
@@ -57,22 +57,21 @@
 
 
 function displayContent(media) {
-  const isVideo = url => (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.image);
-  const isImage = url => (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.video);
-  if (isImage) {
-
-    mediaVid.replaceWith(mediaImg);
-    mediaImg.src = `./assets/Sample Photos/medias/${media.image}`;
-    titleMedia.textContent = `${media.title}`;
-    slideContainer.appendChild(mediaImg);
-  } else if (isVideo) {
-    mediaVid.src = `./assets/Sample Photos/medias/${media.video}" type="video/mp4"`;
-    titleMedia.textContent = `${media.title}`;
-    mediaImg.replaceWith(mediaVid);
-    mediaVid.setAttribute("alt", media.alt);
-    mediaVid.autoplay = true;
-    mediaVid.loop = true;
-    slideContainer.appendChild(mediaVid);
+  const isVideo =  (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.video);
+  const isImage =  (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
+  if(isImage){
+      mediaImg.src =`./assets/Sample Photos/medias/${media.image}`;
+      titleMedia.textContent = `${media.title}`;
+      slideContainer.appendChild(mediaImg);
+  }
+  else if(isVideo){
+      const source = document.createElement("source");
+      source.setAttribute("src",`./assets/Sample Photos/medias/${media.video}`)
+      videoImg.append(source);
+      videoImg.autoplay = true;
+      videoImg.loop = true;
+      videoImg.controls = true;
+      slideContainer.appendChild(videoImg);
   }
 }
   export { displayLightbox, displayContent };

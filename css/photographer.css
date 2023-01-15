@@ -7,7 +7,7 @@
     justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 10%;
     align-items: center;
     padding-left: 20px;
     padding-right:20px ;
@@ -124,7 +124,7 @@ form input:focus-visible{
     flex-wrap: wrap;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 10rem;
     gap:40px;
     margin:0 100px;
@@ -135,7 +135,7 @@ form input:focus-visible{
     margin-bottom: 2rem;
     color: #901c1c;
   }
-  .photographer-cards img{
+  .photographer-cards img , video{
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -171,6 +171,43 @@ form input:focus-visible{
     border-radius: 50%;
     object-fit: cover;
   }
+  @media screen and (max-width: 1000px){
+    #photographerPortrait{
+    width:10rem;
+    height: 10rem;
+    }
+    #photographerName{
+      font-size: 2rem;
+    }
+    #photographerCityCountry{
+      font-size: 1.2rem;
+    }
+    #photographerTagline{
+      width: 8rem;
+      height: 8rem;
+    }
+    .contact_button{
+      font-size: 15px;
+      padding: 12px;
+      width: 146px;
+      height: 50px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    .photograph-header{
+      flex-wrap: wrap;
+    }
+    #photographerPortrait{
+      font-size: 8rem;
+    }
+  }
+@media screen and (max-width: 445px){
+  #photographerPortrait{
+    width:8rem;
+    height: 8rem;
+    }
+    
+}
   #photographerTagline{
     font-size: 1.2rem;
   }
@@ -422,7 +459,6 @@ form input:focus-visible{
   }
   
   .lightbox .lightbox-windows .container-slides video {
-    display: flex;
     margin: auto;
     position: absolute;
     height: 85%;
@@ -430,6 +466,7 @@ form input:focus-visible{
     border-radius: 0.6rem;
     background-color: #868686;
     object-fit: cover;
+    left:16%;
   }
   
   .lightbox .lightbox-windows .commandes {
@@ -502,3 +539,16 @@ form input:focus-visible{
     font-size: 1.5rem;
     font-weight: 500;
   }
+.confirm-message{
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+    top: 50px;
+    z-index: 1;
+}

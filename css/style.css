@@ -16,25 +16,38 @@ header {
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    margin-right: 10%;
 }
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 10%;
+}
+@media screen and (max-width: 900px){
+    h1{
+        font-size: 20px;
+    }
+    .logo{
+        height: 30px;
+    }
 }
 
+@media screen and (max-width: 400px){
+    h1{
+        font-size: 15px;
+    }
+    .logo{
+        height: 20px;
+    }
+   
+}
 .photographer_section {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: space-between;
 }
+
 
 .photographer_section  h2 {
     color: #D3573C;
@@ -50,6 +63,9 @@ h1 {
     object-fit: cover;
     filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
 }
+@media screen and (max-width: 445px){
+   
+}
 .cards-photographer-link{
     flex-direction: column;
     display: flex;
@@ -58,9 +74,6 @@ h1 {
 }
 .photographer_cards{
     font-size: 1rem;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     margin: 5rem 0;
     font-weight: 400;

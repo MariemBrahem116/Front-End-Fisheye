@@ -1,11 +1,11 @@
-const main = document.getElementById("main");
 const lightBox = document.querySelector(".lightbox");
-import { displayContent, displayLightbox} from "../factories/lightbox.js";
- export default function photographerMediaFactory(media) {
+import { displayContent} from "../factories/lightbox.js";
+  function photographerMediaFactory(media,medias) {
     const main = document.querySelector("#main");
     const photographers = document.querySelector(".photographersId");
     const imageTitle = document.createElement('h4'); 
     const imagePhotographer = document.createElement("img");
+    const videoPhotographer = document.createElement("video");
     const cardsMediaImg = document.createElement("a");
     const nbLikes = document.createElement("div");
     const heartLink = document.createElement("button");
@@ -27,7 +27,6 @@ import { displayContent, displayLightbox} from "../factories/lightbox.js";
     nbLikes.append(compteur,heartLink);
     cardsTitle.appendChild(imageTitle);
     cardsTitle.appendChild(nbLikes);
-    cardsMediaImg.appendChild(imagePhotographer);
     photographerCards.appendChild(cardsMediaImg);
     photographerCards.appendChild(cardsTitle);
     photographers.appendChild(photographerCards);
@@ -35,20 +34,40 @@ import { displayContent, displayLightbox} from "../factories/lightbox.js";
     nbLikes.addEventListener("click",function(){
         media.likes++;
         compteur.innerText = media.likes;
-        
+        const heart = document.createElement("i");
+        heart.classList.add(`fas`);
+        heart.classList.add(`fa-heart`);
+        heart.classList.add(`heart`);
+        heart.classList.add(`heart-global`);
+        const nbTotal = document.getElementById("total_Likes_Nb");
+        nbTotal.textContent = parseInt(nbTotal.textContent) +1 ;
+        nbTotal.appendChild(heart);
     })
-    const isVideo = url => (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.image);
-    const isImage = url => (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
-    if(isVideo){
-        imagePhotographer.src = `./assets/Sample Photos/medias/${media.image}`;
-    }else if(isVideo){
-        imagePhotographer.src = `./assets/Sample Photos/medias/${media.video}" type="video/mp4"`;
+    const isVideo =  (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.video);
+    const isImage =  (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
+    if(isImage){
+        imagePhotographer.src =`./assets/Sample Photos/medias/${media.image}`;
+        cardsMediaImg.appendChild(imagePhotographer);
+    }
+    else if(isVideo){
+        const source = document.createElement("source");
+        source.setAttribute("src",`./assets/Sample Photos/medias/${media.video}`)
+        videoPhotographer.append(source);
+        cardsMediaImg.appendChild(videoPhotographer);
     }
     cardsMediaImg.addEventListener("click",function(){
         main.style.display = "none";
         lightBox.style.display = "block";
-        displayLightbox(media);
         displayContent(media);
     })
   }
-  
+ function getLikes(medias){
+    let sum = 0;
+    medias.forEach((media) => {
+      sum += media.likes;
+     
+    });
+    return sum;
+  } 
+  export {photographerMediaFactory , getLikes}
+    
