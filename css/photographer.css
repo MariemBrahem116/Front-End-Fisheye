@@ -40,6 +40,7 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    left: 26%;
     position: absolute;
     top:50px;
     z-index: 1;
@@ -173,18 +174,17 @@ form input:focus-visible{
   }
   @media screen and (max-width: 1000px){
     #photographerPortrait{
-    width:10rem;
-    height: 10rem;
+    width:8rem;
+    height: 8rem;
     }
     #photographerName{
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     #photographerCityCountry{
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
-    #photographerTagline{
-      width: 8rem;
-      height: 8rem;
+    .photographer-cards{
+      width:45%;
     }
     .contact_button{
       font-size: 15px;
@@ -193,23 +193,41 @@ form input:focus-visible{
       height: 50px;
     }
   }
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 700px){
     .photograph-header{
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      margin-bottom: 40px;
+      height: 200px;
     }
+    
     #photographerPortrait{
-      font-size: 8rem;
+      width: 8rem;
+      height:8rem ;
     }
+    .contact_button{
+      position: fixed;
+      top: end;
+      top: 90%;
+      right: 40%;
+     height: 40px;
+    }
+      .photographer-cards {
+        width: 100%;}
   }
 @media screen and (max-width: 445px){
   #photographerPortrait{
-    width:8rem;
-    height: 8rem;
+    width:6rem;
+    height: 6rem;
     }
     
 }
   #photographerTagline{
     font-size: 1.2rem;
+  }
+  @media screen and (max-width: 1000px){
+    #photographerTagline{
+      font-size: 1rem;
+    }
   }
   .nb_likes{
     display: flex;
@@ -224,10 +242,8 @@ form input:focus-visible{
     color: #901c1c;
 }
 
-@media screen and (min-width: 42.5rem) {
+
     .filter {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -251,8 +267,10 @@ form input:focus-visible{
       font-size: 2rem;
       margin-left: 4rem;
     }
-  }
-  
+    @media screen and (max-width: 700px) {
+      .filter{display: none;}
+      
+    }
   .dropdownMenu {
     width: 15rem;
   }
@@ -399,6 +417,12 @@ form input:focus-visible{
     border-radius: 0.6rem 0.6rem 0 0;
     color: black;
   }
+  @media screen and (max-width: 700px){
+    .total-likes-container{
+      display: none;
+    }
+  }
+  
   .total-likes-container i {
     margin-left: 6px;
   }
@@ -539,16 +563,25 @@ form input:focus-visible{
     font-size: 1.5rem;
     font-weight: 500;
   }
-.confirm-message{
+  .confirm_Inscription{
+    position: absolute;
     border-radius: 5px;
     background-color: #DB8876;
     width: 600px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-    top: 50px;
+    top: 280px;
+    right:10%;
     z-index: 1;
+}
+.confirm_Inscription p {
+  font-size: 2rem;
+}
+@media screen and (max-width: 840px){
+  .confirm_Inscription{
+    width: 71%;
+  }
 }

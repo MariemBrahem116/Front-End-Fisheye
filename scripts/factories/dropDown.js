@@ -32,7 +32,7 @@ export default function displayFilterMenu(displayPhotographerMedia) {
             ".filter-select__trigger span"
           ).textContent = this.textContent;
           hideDropdown();
-          displayPhotographerMedia();
+          
         }
       });
     }

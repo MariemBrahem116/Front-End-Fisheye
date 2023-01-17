@@ -1,6 +1,6 @@
 const lightBox = document.querySelector(".lightbox");
 import { displayContent} from "../factories/lightbox.js";
-  function photographerMediaFactory(media,medias) {
+  function photographerMediaFactory(media, medias, index) {
     const main = document.querySelector("#main");
     const photographers = document.querySelector(".photographersId");
     const imageTitle = document.createElement('h4'); 
@@ -58,7 +58,7 @@ import { displayContent} from "../factories/lightbox.js";
     cardsMediaImg.addEventListener("click",function(){
         main.style.display = "none";
         lightBox.style.display = "block";
-        displayContent(media);
+        displayContent(medias, index);
     })
   }
  function getLikes(medias){

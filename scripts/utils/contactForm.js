@@ -3,6 +3,7 @@ const logoHeader = document.querySelector(".logo-Header");
 const modal = document.getElementById("contact_modal");
 const confirmMessage = document.querySelector(".confirm_Inscription");
 const containerInput = document.querySelectorAll(".formData");
+const form = document.querySelector(".modal-form");
 function displayModal() {
 	modal.style.display = "block";
     confirmMessage.style.display = "none";
@@ -10,6 +11,7 @@ function displayModal() {
 
 function closeModal() { 
     modal.style.display = "none";
+    confirmMessage.style.display = "none";
 }
 //Accéder à toutes les entrées et paramétrer la validation
 //Indiquer si l'expression régulière trouve une correspondance dans la chaîne d'entrée
@@ -99,9 +101,9 @@ const inputs = {
   modal.onsubmit = (e) => {
       e.preventDefault();
       if (validator.launchValidation()) {
-          modal.reset();
-          modal.style.display ="none";
-          confirmMessage.style.display ="flex";
+          form.reset();
+          modal.style.display = "none";
+          confirmMessage.style.display ="block";
       }
   }
   
