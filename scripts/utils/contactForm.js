@@ -103,7 +103,7 @@ const inputs = {
       if (validator.launchValidation()) {
           form.reset();
           modal.style.display = "none";
-          confirmMessage.style.display ="flex";
+          console.log("Votre message a été bien envoyé.")
       }
   }
   

@@ -58,7 +58,7 @@
     top:20px;
 }
 
-.modal header h2 {
+.modal header h3 {
     font-size: 57px;
     font-weight: normal;
 }
@@ -268,7 +268,7 @@ form input:focus-visible{
       margin-right: 2rem;
       font-size: 2rem;
     }
-    .filter h3 {
+    .filter h2 {
       margin-right: 2rem;
       font-size: 2rem;
       margin-left: 4rem;

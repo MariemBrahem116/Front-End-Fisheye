@@ -1,27 +1,37 @@
-//Mettre le code JavaScript lié à la page photographer.html
 import { photographerMediaFactory, getLikes } from "../factories/photographerMedia.js";
-import displayFilterMenu from "../factories/dropDown.js";
+import displayFilterMenu from "../factories/filterMenu.js";
+
+//Chercher l'id du photographer passé en paramètre
 let paramPhotographerId = parseInt((new URL(document.location)).searchParams.get('id'));
+
+//Eléments DOM
 const photographerName = document.getElementById("photographerName");
 const photographerCityCountry = document.getElementById("photographerCityCountry");
 const photographerTagline = document.getElementById("photographerTagline");
 const photographerPortrait = document.getElementById("photographerPortrait");
 const sort = document.querySelector(".filter-options-container");
-const btn = document.querySelector(".contact_button btn");
 const linkData = "./../data/photographers.json";
-fetch(linkData)
 
+//récupèrer les données provenant du fichier JSON
+fetch(linkData)
     .then((response) => response.json())
     .then((data) => {
-        displayPhotographerMedia(data.media, "title");
+        //charger la liste des medias trier par popularté par défaut
+        displayPhotographerMedia(data.media, "popularite");
+        //Charger la liste des medias trier par popularté en cliquant si dessus
         sort.children.item(0).addEventListener("click",()=> displayPhotographerMedia(data.media, "popularite"));
+        //Charger la liste des medias trier par date en cliquant si dessus
         sort.children.item(1).addEventListener("click",()=> displayPhotographerMedia(data.media, "date"));
+        //Charger la liste des medias trier par titre en cliquant si dessus
         sort.children.item(2).addEventListener("click",()=> displayPhotographerMedia(data.media, "titre"));
-        displayPhotographerInfo(getPhotographerById(paramPhotographerId, data.photographers))
+        //Afficher le photographer sélectionné
+        displayPhotographerInfo(getPhotographerById(paramPhotographerId, data.photographers));
+        //Afficher le nom du photographer sélectionné sur le modal et le message de confirmation
         displayTitleModal(getPhotographerById(paramPhotographerId, data.photographers));
+        //afficher les filtres
         displayFilterMenu(displayPhotographerMedia);
+        //afficher la liste des medias lié au photographe sélectionné
         displayInfo(getPhotographerById(paramPhotographerId, data.photographers), getMediaPhotographer(paramPhotographerId, data.media));
-       
     });
 /**
  * 
@@ -37,6 +47,12 @@ function getPhotographerById(id, listPhotographer) {
     });
     return photographerFound;
 }
+/**
+ * 
+ * @param {*} id 
+ * @param {*} medias 
+ * @returns 
+ */
 function getMediaPhotographer(id, medias) {
     var mediaFound = [];
     medias.forEach(media => {
@@ -46,18 +62,29 @@ function getMediaPhotographer(id, medias) {
     });
     return mediaFound;
 }
+/**
+ * 
+ * @param {*} photographer 
+ */
 function displayPhotographerInfo(photographer) {
     photographerName.innerHTML = photographer.name;
     photographerCityCountry.innerHTML = photographer.city + ", " + photographer.country;
     photographerTagline.innerHTML = photographer.tagline;
     photographerPortrait.setAttribute("src", "assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait)
 }
+/**
+ * 
+ * @param {*} photographer 
+ */
 function displayTitleModal(photographer){
     const modalTitle = document.querySelector(".modalTitle");
-    const confirmInscription = document.querySelector(".msgConfirm");
     modalTitle.innerHTML = "Contactez-moi " + photographer.name;
-    confirmInscription.innerHTML = "Votre message a été bien envoyé à " + photographer.name + ".";
 }
+/**
+ * 
+ * @param {*} medias 
+ * @param {*} filterType 
+ */
 export default function displayPhotographerMedia(medias, filterType) {
     var filterData = [];
     medias.forEach(media => {
@@ -73,6 +100,11 @@ export default function displayPhotographerMedia(medias, filterType) {
 
     })
 }
+/**
+ * 
+ * @param {*} currentPhotographer 
+ * @param {*} medias 
+ */
 function displayInfo(currentPhotographer, medias) {
     const totalLikesContainer = document.createElement("div");
     const priceContainer = document.createElement("div");
@@ -95,8 +127,12 @@ function displayInfo(currentPhotographer, medias) {
     priceContainer.appendChild(price);
     totalLikesContainer.append(totalLikesNb, priceContainer);
 }
-
-
+/**
+ * 
+ * @param {*} localMediaList 
+ * @param {*} critaire 
+ * @returns 
+ */
 function getMediaList(localMediaList, critaire) {
     var elementA;
     var elementB;

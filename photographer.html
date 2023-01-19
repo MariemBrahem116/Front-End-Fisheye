@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css"  type="text/css" />
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/70f41f18b3.js" crossorigin="anonymous"></script> 
-    <title>Fisheye - photographe </title>
+    <script src="https://kit.fontawesome.com/70f41f18b3.js" crossorigin="anonymous"></script>
+    <title>Fisheye - photographe </title> 
   </head>
   <body>
     
     <main id="main">
       <header class="logo-Header">
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo_img"/>
     </header>
       <div class="photograph-header">
         <div class="photographerInfo">
@@ -21,10 +21,10 @@
           <p id="photographerTagline"></p>
         </div>
         <button class="contact_button btn" onclick="displayModal()">Contactez-moi</button>
-        <img id="photographerPortrait" >
+        <img id="photographerPortrait" alt="photographer_portrait">
       </div>
       <section class="filter">
-        <h3 id="trierPar">Trier par </h3>
+        <h2 id="trierPar">Trier par </h2>
         <div class="dropdownMenu">
             <div class="filter-select">
                 <a href="#" role="button" class="filter-select__trigger" aria-controls="filter-options"
@@ -50,36 +50,30 @@
     <div id="contact_modal" >
 			<div class="modal">
 				<header>
-          <h2 class="modalTitle"></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h3 class="modalTitle"></h3>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="icon" />
         </header>
         <form class="modal-form" id="contact">
           <div class="formData " data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
-          <label for="prenom">Prénom</label>
-          <input class="firstName-inp" id="prenom" type="text" name="first-Name" placeholder="Prénom"/>
+            <label for="prenom">Prénom</label>
+            <input class="firstName-inp" id="prenom" type="text" name="first-Name" placeholder="Prénom"/>
           </div>
           <div class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
-          <label for="nom">Nom</label>
-          <input class="lastName-inp" id="nom" type="text" name="last-Name" placeholder="Nom"/>
+            <label for="nom">Nom</label>
+            <input class="lastName-inp" id="nom" type="text" name="last-Name" placeholder="Nom"/>
           </div>
           <div class="formData" data-error="Vous devez entrer un Email valide !">
-          <label for="email">Email<br /></label>
-          <input class="email-inp" id="email" type="email" name="email" placeholder="Email" />
+            <label for="email">Email<br /></label>
+            <input class="email-inp" id="email" type="email" name="email" placeholder="Email" />
           </div>
           <div class="formData" data-error="Vous devez remplir cette case!">
-          <label for="msg">Votre Message<br /></label>
-          <input class="msg-inp" id="msg" name="message" placeholder="Message" />
+            <label for="msg">Votre Message<br /></label>
+            <input class="msg-inp" id="msg" name="message" placeholder="Message" />
          </div>
-          <button class="contact_button" type="submit" value="Envoyer" name="Email">
-              Envoyer
-          </button>
+          <button class="contact_button" type="submit" value="Envoyer" name="Email">Envoyer</button>
         </form>
     </div>
 		</div>
-    <div class="confirm_Inscription">
-      <p class ="msgConfirm"> </p>
-      <img src="assets/icons/close.svg" onclick="closeModal()" />
-    </div>
     <section class="lightbox" role="dialog" aria-label="lightbox modal">
       <div class="lightbox-windows">
           <ul class="container-slides"></ul>
@@ -93,10 +87,10 @@
               <button class="close" aria-label="Fermer">
                   <em class="fas fa-times close-lightbox-media"></em>
               </button>
-              <h2 class="titre-media-lightbox"></h2>
+              <h3 class="titre-media-lightbox"></h3>
           </div>
       </div>
-  </section>
+    </section>
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
