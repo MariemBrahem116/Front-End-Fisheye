@@ -7,20 +7,21 @@ const photographerCityCountry = document.getElementById("photographerCityCountry
 const photographerTagline = document.getElementById("photographerTagline");
 const photographerPortrait = document.getElementById("photographerPortrait");
 const sort = document.querySelector(".filter-options-container");
+const btn = document.querySelector(".contact_button btn");
 const linkData = "./../data/photographers.json";
 fetch(linkData)
 
     .then((response) => response.json())
     .then((data) => {
         displayPhotographerMedia(data.media, "title");
-        sort.children.item(0).addEventListener("click",()=> displayPhotographerMedia(data.media,"popularite"));
-        sort.children.item(1).addEventListener("click",()=> displayPhotographerMedia(data.media,"date"));
-        sort.children.item(2).addEventListener("click",()=> displayPhotographerMedia(data.media,"title"));
+        sort.children.item(0).addEventListener("click",()=> displayPhotographerMedia(data.media, "popularite"));
+        sort.children.item(1).addEventListener("click",()=> displayPhotographerMedia(data.media, "date"));
+        sort.children.item(2).addEventListener("click",()=> displayPhotographerMedia(data.media, "titre"));
         displayPhotographerInfo(getPhotographerById(paramPhotographerId, data.photographers))
+        displayTitleModal(getPhotographerById(paramPhotographerId, data.photographers));
         displayFilterMenu(displayPhotographerMedia);
-        console.log(data.media.indexOf(data.media[5]));
-        console.log(getMediaPhotographer(paramPhotographerId, data.media).length)
         displayInfo(getPhotographerById(paramPhotographerId, data.photographers), getMediaPhotographer(paramPhotographerId, data.media));
+       
     });
 /**
  * 
@@ -51,12 +52,17 @@ function displayPhotographerInfo(photographer) {
     photographerTagline.innerHTML = photographer.tagline;
     photographerPortrait.setAttribute("src", "assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait)
 }
+function displayTitleModal(photographer){
+    const modalTitle = document.querySelector(".modalTitle");
+    const confirmInscription = document.querySelector(".msgConfirm");
+    modalTitle.innerHTML = "Contactez-moi " + photographer.name;
+    confirmInscription.innerHTML = "Votre message a été bien envoyé à " + photographer.name + ".";
+}
 export default function displayPhotographerMedia(medias, filterType) {
     var filterData = [];
     medias.forEach(media => {
         if (media.photographerId == paramPhotographerId) {
             filterData.push(media);
-
         }
     })
     filterData = getMediaList(filterData, filterType);
@@ -96,14 +102,15 @@ function getMediaList(localMediaList, critaire) {
     var elementB;
     localMediaList.sort(function (a, b) {
         switch (critaire) {
-            case "date":
-
-                break;
             case "popularite":
                 elementA = a.likes;
                 elementB = b.likes;
                 break;
-            case "title":
+            case "date":
+                elementA = a.date;
+                elementB = b.date;
+                break;
+            case "titre":
                 elementA = a.title.toUpperCase();
                 elementB = b.title.toUpperCase();
                 break;
@@ -117,6 +124,7 @@ function getMediaList(localMediaList, critaire) {
         return 0;
     });
     return localMediaList;
+    console.log(localMediaList);
 }
 
 

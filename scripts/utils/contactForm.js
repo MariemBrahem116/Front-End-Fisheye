@@ -103,7 +103,7 @@ const inputs = {
       if (validator.launchValidation()) {
           form.reset();
           modal.style.display = "none";
-          confirmMessage.style.display ="block";
+          confirmMessage.style.display ="flex";
       }
   }
   

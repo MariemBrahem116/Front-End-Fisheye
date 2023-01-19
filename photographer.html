@@ -20,7 +20,7 @@
           <p id="photographerCityCountry"></p>
           <p id="photographerTagline"></p>
         </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button btn" onclick="displayModal()">Contactez-moi</button>
         <img id="photographerPortrait" >
       </div>
       <section class="filter">
@@ -50,7 +50,7 @@
     <div id="contact_modal" >
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 class="modalTitle"></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
         <form class="modal-form" id="contact">
@@ -77,7 +77,7 @@
     </div>
 		</div>
     <div class="confirm_Inscription">
-      <p>Votre message a été bien envoyé. </p>
+      <p class ="msgConfirm"> </p>
       <img src="assets/icons/close.svg" onclick="closeModal()" />
     </div>
     <section class="lightbox" role="dialog" aria-label="lightbox modal">

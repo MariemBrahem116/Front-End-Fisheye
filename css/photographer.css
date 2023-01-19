@@ -53,12 +53,17 @@
 
 .modal header img {
     cursor: pointer;
+    position: absolute;
+    right: 3%;
+    top:20px;
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 57px;
     font-weight: normal;
-    text-align: center;
+}
+.modalTitle{
+  width:70%;
 }
 
 form {
@@ -66,6 +71,7 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 32px;
 }
 
 form label {
@@ -186,7 +192,7 @@ form input:focus-visible{
     .photographer-cards{
       width:45%;
     }
-    .contact_button{
+    .contact_button .btn{
       font-size: 15px;
       padding: 12px;
       width: 146px;
@@ -204,7 +210,7 @@ form input:focus-visible{
       width: 8rem;
       height:8rem ;
     }
-    .contact_button{
+    .contact_button .btn{
       position: fixed;
       top: end;
       top: 90%;
@@ -564,11 +570,11 @@ form input:focus-visible{
     font-weight: 500;
   }
   .confirm_Inscription{
-    position: absolute;
+    display: none;
+    position: fixed;
     border-radius: 5px;
     background-color: #DB8876;
     width: 600px;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
@@ -582,6 +588,12 @@ form input:focus-visible{
 }
 @media screen and (max-width: 840px){
   .confirm_Inscription{
-    width: 71%;
+    width: 91%;
+    right: 0;
   }
+  .modal{
+    width: 91%;
+    left: 0;
+  }
+
 }
