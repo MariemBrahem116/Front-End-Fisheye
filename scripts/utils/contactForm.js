@@ -1,17 +1,16 @@
+//Elements DOM
 const photgraphHeader = document.querySelector(".photograph-header");
 const logoHeader = document.querySelector(".logo-Header");
 const modal = document.getElementById("contact_modal");
-const confirmMessage = document.querySelector(".confirm_Inscription");
 const containerInput = document.querySelectorAll(".formData");
 const form = document.querySelector(".modal-form");
+
 function displayModal() {
 	modal.style.display = "block";
-    confirmMessage.style.display = "none";
 }
 
 function closeModal() { 
     modal.style.display = "none";
-    confirmMessage.style.display = "none";
 }
 //Accéder à toutes les entrées et paramétrer la validation
 //Indiquer si l'expression régulière trouve une correspondance dans la chaîne d'entrée
@@ -42,7 +41,7 @@ const inputs = {
     }
     valid = true;
     // Les méthodes de validation
-        //vérifier si le nom et le prénom ne sont pas vide et ils comportent  au minimum 2 lettres 
+        //vérifier si le nom, le prénom et la zone de message ne sont pas vides et ils comportent  au minimum 2 lettres 
         nameValidation = (element, regex) => element.value == "" || element.value.length < 2 || !regex.test(element.value) ? false : true;
   
         // vérifier si le mail est valide

@@ -19,11 +19,11 @@ fetch(linkData)
         //charger la liste des medias trier par popularté par défaut
         displayPhotographerMedia(data.media, "popularite");
         //Charger la liste des medias trier par popularté en cliquant si dessus
-        sort.children.item(0).addEventListener("click",()=> displayPhotographerMedia(data.media, "popularite"));
+        sort.children.item(0).addEventListener("click", () => displayPhotographerMedia(data.media, "popularite"));
         //Charger la liste des medias trier par date en cliquant si dessus
-        sort.children.item(1).addEventListener("click",()=> displayPhotographerMedia(data.media, "date"));
+        sort.children.item(1).addEventListener("click", () => displayPhotographerMedia(data.media, "date"));
         //Charger la liste des medias trier par titre en cliquant si dessus
-        sort.children.item(2).addEventListener("click",()=> displayPhotographerMedia(data.media, "titre"));
+        sort.children.item(2).addEventListener("click", () => displayPhotographerMedia(data.media, "titre"));
         //Afficher le photographer sélectionné
         displayPhotographerInfo(getPhotographerById(paramPhotographerId, data.photographers));
         //Afficher le nom du photographer sélectionné sur le modal et le message de confirmation
@@ -33,11 +33,7 @@ fetch(linkData)
         //afficher la liste des medias lié au photographe sélectionné
         displayInfo(getPhotographerById(paramPhotographerId, data.photographers), getMediaPhotographer(paramPhotographerId, data.media));
     });
-/**
- * 
- * @param {Number} id 
- * @param {Array} listPhotographer 
- */
+
 function getPhotographerById(id, listPhotographer) {
     var photographerFound = null;
     listPhotographer.forEach(photographer => {
@@ -47,12 +43,7 @@ function getPhotographerById(id, listPhotographer) {
     });
     return photographerFound;
 }
-/**
- * 
- * @param {*} id 
- * @param {*} medias 
- * @returns 
- */
+
 function getMediaPhotographer(id, medias) {
     var mediaFound = [];
     medias.forEach(media => {
@@ -62,31 +53,23 @@ function getMediaPhotographer(id, medias) {
     });
     return mediaFound;
 }
-/**
- * 
- * @param {*} photographer 
- */
+
 function displayPhotographerInfo(photographer) {
     photographerName.innerHTML = photographer.name;
     photographerCityCountry.innerHTML = photographer.city + ", " + photographer.country;
     photographerTagline.innerHTML = photographer.tagline;
-    photographerPortrait.setAttribute("src", "assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait)
+    photographerPortrait.setAttribute("src", "assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait);
+    photographerPortrait.setAttribute("alt", photographer.name);
 }
-/**
- * 
- * @param {*} photographer 
- */
-function displayTitleModal(photographer){
+
+function displayTitleModal(photographer) {
     const modalTitle = document.querySelector(".modalTitle");
-    modalTitle.innerHTML = "Contactez-moi " + photographer.name;
+    modalTitle.innerHTML = "Contactez-moi <br>" + photographer.name;
 }
-/**
- * 
- * @param {*} medias 
- * @param {*} filterType 
- */
+
 export default function displayPhotographerMedia(medias, filterType) {
     var filterData = [];
+    document.querySelector(".photographersId").innerHTML = "";
     medias.forEach(media => {
         if (media.photographerId == paramPhotographerId) {
             filterData.push(media);
@@ -100,11 +83,7 @@ export default function displayPhotographerMedia(medias, filterType) {
 
     })
 }
-/**
- * 
- * @param {*} currentPhotographer 
- * @param {*} medias 
- */
+
 function displayInfo(currentPhotographer, medias) {
     const totalLikesContainer = document.createElement("div");
     const priceContainer = document.createElement("div");
@@ -127,20 +106,15 @@ function displayInfo(currentPhotographer, medias) {
     priceContainer.appendChild(price);
     totalLikesContainer.append(totalLikesNb, priceContainer);
 }
-/**
- * 
- * @param {*} localMediaList 
- * @param {*} critaire 
- * @returns 
- */
+
 function getMediaList(localMediaList, critaire) {
     var elementA;
     var elementB;
     localMediaList.sort(function (a, b) {
         switch (critaire) {
             case "popularite":
-                elementA = a.likes;
-                elementB = b.likes;
+                elementA = b.likes;
+                elementB = a.likes;
                 break;
             case "date":
                 elementA = a.date;

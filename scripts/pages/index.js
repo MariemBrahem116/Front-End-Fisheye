@@ -1,21 +1,10 @@
-import photographerFactory from "../factories/photographer.js"; 
-const linkData = "./../data/photographers.json"
-        fetch(linkData)
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              console.log("Une erreur est survenue ! ");
-            }
-          })
-          .then((data) => displayPhotographers(data.photographers))
-       
-      
-      function displayPhotographers(photographers) {
-        
-        photographers.forEach ((photographer) => 
-        {
-            photographerFactory(photographer)
-        });
-      }
-   
+import photographerFactory from "../factories/photographer.js";
+const linkData = "./../data/photographers.json";
+//récupèrer les données provenant du fichier JSON
+fetch(linkData)
+  .then((resp) => resp.json())
+  .then((data) => displayPhotographers(data.photographers));
+//afficher les des photographers ainsi leur caractéristiques  
+function displayPhotographers(photographers) {
+  photographers.forEach((photographer) =>  photographerFactory(photographer));
+}

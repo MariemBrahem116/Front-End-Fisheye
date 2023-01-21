@@ -67,11 +67,22 @@ h1 {
    
 }
 .cards-photographer-link{
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor:pointer;
     flex-direction: column;
     display: flex;
     text-decoration: none;
     align-items: center;
 }
+.cards-photographer-link :hover{
+    transform: scale(1.1);
+}
+  
 .photographer_cards{
     font-size: 1rem;
     flex-direction: column;

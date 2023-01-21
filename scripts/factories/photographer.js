@@ -1,9 +1,8 @@
-
+//afficher les photographes de la page d'accueil
 export default function photographerFactory(photographer) {
     const main = document.querySelector("#main");
     const linkToPage = "photographer.html?id=" + photographer.id;
-    const linkToPhoto =
-        "./assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait;
+    const linkToPhoto = "./assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait;
     const cardPhotographer = document.querySelector(".photographer_section");
     const cardPhtographers = document.createElement("div")
     const cardLink = document.createElement("a");
@@ -23,12 +22,12 @@ export default function photographerFactory(photographer) {
     cardBody.classList.add("cards-body");
     cardLink.setAttribute("role", "link");
     cardLink.href = linkToPage;
-    cardImg.setAttribute("src",linkToPhoto);
+    cardImg.setAttribute("src", linkToPhoto);
+    cardImg.setAttribute("alt", photographer.name);
     cardTitle.textContent = photographer.name;
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
     cardPrice.textContent = photographer.price + "€/jour";
-    
     cardBody.appendChild(cardLocation);
     cardBody.appendChild(cardTagline);
     cardBody.appendChild(cardPrice);

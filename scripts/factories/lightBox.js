@@ -8,23 +8,7 @@ const titleMedia = document.querySelector(".titre-media-lightbox");
 const mediaImg = document.createElement("img");
 const videoImg = document.createElement("video");
 
-function nextSlide(e) {
-
-  displayContent(media, index + 1);
-}
-
-function previousSlide(e) {
-  e.preventDefault;
-  if (media.indexOf(media) <= 0) {
-    media = getMediaPhotographer[getMediaPhotographer.length - 1];
-    displayContent(media);
-  } else {
-    media =
-      media[media.indexOf(media) - 1];
-    displayContent(media);
-  }
-}
-
+//Fermer les media via croix
 function closelightbox() {
   const lightboxModal = document.querySelector(".lightbox");
   const main = document.getElementById("main");
@@ -33,13 +17,15 @@ function closelightbox() {
 }
 
 function displayContent(medias, indexI) {
-  appendlightBoxContent(medias[indexI]); 
+  appendlightBoxContent(medias[indexI]);
+  // Charger le media suivant  
   next.addEventListener("click", ()=>{
     if(medias.length < indexI + 1){
       indexI = 0;
     }
     appendlightBoxContent(medias[indexI++]);
   });
+  //Charger le media précedent
   previous.addEventListener("click", ()=>{
     if( indexI - 1 < 0){
       indexI = medias.length - 1 ;
@@ -48,33 +34,46 @@ function displayContent(medias, indexI) {
   });
   closeBtn.addEventListener("click", closelightbox);
   lightboxModal.addEventListener("keydown", (e) => {
+    //Fermer la light box via ESC
     if (e.code === "Escape") {
-      closelightbox(e, s);
+      closelightbox();
     }
+    //Charger le media suivant via le clavier
     if (e.code === "ArrowRight") {
-      nextSlide(e);
+      if(medias.length < indexI + 1){
+        indexI = 0;
+      }
+      appendlightBoxContent(medias[indexI++]);
     }
+    //Charger le media précedent via le clavier
     if (e.code === "ArrowLeft") {
-      previousSlide(e);
+      if( indexI - 1 < 0){
+        indexI = medias.length - 1 ;
+      }
+      appendlightBoxContent(medias[indexI--]);
     }
   });
 
 }
+
+//Récupérer les medias et les tester
 function appendlightBoxContent(media){
   const isVideo = (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.video);
   const isImage = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
+  slideContainer.innerHTML = "";
   if (isImage) {
     mediaImg.src = `./assets/Sample Photos/medias/${media.image}`;
+    mediaImg.setAttribute("alt",media.title);
     titleMedia.textContent = `${media.title}`;
     slideContainer.appendChild(mediaImg);
   }
   else if (isVideo) {
     const source = document.createElement("source");
-    source.setAttribute("src", `./assets/Sample Photos/medias/${media.video}`)
+    source.setAttribute("src", `./assets/Sample Photos/medias/${media.video}`);
+    source.setAttribute("alt",media.title);
+    videoImg.style.zIndex = 10;
     videoImg.append(source);
-    videoImg.autoplay = true;
-    videoImg.loop = true;
-    videoImg.controls = true;
+    videoImg.setAttribute("controls", "true");
     slideContainer.appendChild(videoImg);
   }
 }
