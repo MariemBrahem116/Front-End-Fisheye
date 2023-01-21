@@ -46,6 +46,7 @@ function photographerMediaFactory(media, medias, index) {
   if (isImage) {
     imagePhotographer.src = `./assets/Sample Photos/medias/${media.image}`;
     imagePhotographer.setAttribute("alt", media.title);
+    imagePhotographer.classList.add("cardsImg");
     cardsMediaImg.appendChild(imagePhotographer);
   }
   else if (isVideo) {
@@ -53,6 +54,7 @@ function photographerMediaFactory(media, medias, index) {
     source.setAttribute("src", `./assets/Sample Photos/medias/${media.video}`);
     source.setAttribute("alt", media.title);
     videoPhotographer.append(source);
+    videoPhotographer.classList.add("cardsImg");
     cardsMediaImg.appendChild(videoPhotographer);
   }
   cardsMediaImg.addEventListener("click", function () {
