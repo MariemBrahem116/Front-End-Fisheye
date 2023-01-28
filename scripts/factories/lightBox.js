@@ -23,12 +23,18 @@ function displayContent(medias, indexI) {
     if(medias.length < indexI + 1){
       indexI = 0;
     }
+    else{
+      indexI += 1;
+    }
     appendlightBoxContent(medias[indexI++]);
   });
   //Charger le media précedent
   previous.addEventListener("click", ()=>{
     if( indexI - 1 < 0){
       indexI = medias.length - 1 ;
+    }
+    else{
+      indexI -= 1;
     }
     appendlightBoxContent(medias[indexI--]);
   });
