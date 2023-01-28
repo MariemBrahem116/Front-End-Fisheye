@@ -1,4 +1,4 @@
-import getMediaPhotographer from "../pages/photographer.js";
+
 const lightboxModal = document.querySelector(".lightbox");
 const slideContainer = document.querySelector(".container-slides");
 const closeBtn = document.querySelector(".close");

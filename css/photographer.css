@@ -160,16 +160,16 @@ input[data-error]::after {
   height: 100%;
   border-radius: 0.6rem;
   -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .cards-media-img :hover {
   -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .cards-title {
@@ -231,10 +231,10 @@ input[data-error]::after {
     width: 146px;
     height: 50px;
   }
-  
-.modal{
-  left:20%;
-} 
+
+  .modal {
+    left: 20%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -480,13 +480,13 @@ input[data-error]::after {
 }
 
 @media screen and (max-width: 700px) {
-  
-  .contact_button{
+
+  .contact_button {
     position: fixed;
     top: 630px;
     left: 250px;
     height: 50px;
-}
+  }
 
   .total-likes-container {
     display: none;
@@ -501,7 +501,7 @@ input[data-error]::after {
   margin-left: 2rem;
 }
 
-.modal header h3{
+.modal header h3 {
   font-size: 40px;
 }
 
@@ -509,9 +509,10 @@ form label {
   font-size: 30px;
 }
 
-form input{
+form input {
   height: 50px;
 }
+
 .lightbox {
   display: none;
   position: fixed;
@@ -669,7 +670,14 @@ form input{
     left: 0;
   }
 }
-a:hover, input:hover, button:hover, select:hover,
-a:focus, input:focus, button:focus, select:focus {
+
+a:hover,
+input:hover,
+button:hover,
+select:hover,
+a:focus,
+input:focus,
+button:focus,
+select:focus {
   font-weight: bold;
 }

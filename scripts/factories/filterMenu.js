@@ -1,4 +1,4 @@
-export default function displayFilterMenu(displayPhotographerMedia) {
+export default function displayFilterMenu() {
   const dropDownMenu = document.querySelector(".dropdownMenu ");
   const filterSelect = document.querySelector(".filter-select");
   const filterSelectTrigger = document.querySelector(".filter-select__trigger");

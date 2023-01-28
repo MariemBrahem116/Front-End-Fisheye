@@ -40,7 +40,7 @@ class validate {
         this.inputs = inputs;
         this.containerInput = containerInput;
     }
-    valid = true;
+   valid = true ;
     // Les méthodes de validation
     //vérifier si le nom, le prénom et la zone de message ne sont pas vides et ils comportent  au minimum 2 lettres 
     nameValidation = (element, regex) => element.value == "" || element.value.length < 2 || !regex.test(element.value) ? false : true;

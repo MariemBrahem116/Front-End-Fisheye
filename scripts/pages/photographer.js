@@ -101,7 +101,6 @@ function displayInfo(currentPhotographer, medias) {
     totalLikesNb.setAttribute("id", "total_Likes_Nb");
     totalLikesNb.textContent = getLikes(medias);
     price.textContent = `${currentPhotographer.price}€/ jour`;
-    main.append(totalLikesContainer);
     totalLikesNb.appendChild(heart);
     priceContainer.appendChild(price);
     totalLikesContainer.append(totalLikesNb, priceContainer);
@@ -134,7 +133,6 @@ function getMediaList(localMediaList, critaire) {
         return 0;
     });
     return localMediaList;
-    console.log(localMediaList);
 }
 
 

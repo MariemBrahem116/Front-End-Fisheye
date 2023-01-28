@@ -16,6 +16,8 @@ function photographerMediaFactory(media, medias, index) {
   titleHeart.classList.add("fa-heart");
   heartLink.classList.add("heart_Link");
   cardsMediaImg.classList.add("cards-media-img");
+  cardsMediaImg.setAttribute("tabindex", "0");
+  heartLink.setAttribute("tabindex", "0");
   compteur.innerHTML = media.likes;
   imageTitle.innerHTML = media.title;
   photographerCards.classList.add("photographer-cards");
@@ -57,6 +59,12 @@ function photographerMediaFactory(media, medias, index) {
     videoPhotographer.classList.add("cardsImg");
     cardsMediaImg.appendChild(videoPhotographer);
   }
+  cardsMediaImg.addEventListener("keydown", function (e) {
+    if (e.key === "Enter"){
+      lightBox.style.display = "block";
+      displayContent(medias, index);
+    }
+  })
   cardsMediaImg.addEventListener("click", function () {
     lightBox.style.display = "block";
     displayContent(medias, index);
