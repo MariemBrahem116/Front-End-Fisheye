@@ -5,6 +5,7 @@ import displayFilterMenu from "../factories/filterMenu.js";
 let paramPhotographerId = parseInt((new URL(document.location)).searchParams.get('id'));
 
 //Eléments DOM
+const main = document.getElementById("main");
 const photographerName = document.getElementById("photographerName");
 const photographerCityCountry = document.getElementById("photographerCityCountry");
 const photographerTagline = document.getElementById("photographerTagline");
@@ -104,6 +105,7 @@ function displayInfo(currentPhotographer, medias) {
     totalLikesNb.appendChild(heart);
     priceContainer.appendChild(price);
     totalLikesContainer.append(totalLikesNb, priceContainer);
+    main.appendChild(totalLikesContainer);
 }
 
 function getMediaList(localMediaList, critaire) {
