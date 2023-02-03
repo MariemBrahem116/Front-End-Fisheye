@@ -1,3 +1,4 @@
+
 #contact_modal {
   display: none;
 }
@@ -45,7 +46,7 @@
   left: 26%;
   position: absolute;
   top: 50px;
-  z-index: 1;
+  z-index: 150;
 }
 
 .modal header {
@@ -421,6 +422,7 @@ input[data-error]::after {
 }
 
 .arrow {
+
   position: relative;
   height: 1.5rem;
   width: 1.5rem;
@@ -437,15 +439,15 @@ input[data-error]::after {
   transition: all 0.5s;
 }
 
-.arrow::before {
-  left: -0.5rem;
+.arrow::after {
+  left: 0.1rem;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   background-color: white;
 }
 
-.arrow::after {
-  left: 0.5rem;
+.arrow::before {
+  left: -0.9rem;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   background-color: white;
@@ -454,13 +456,13 @@ input[data-error]::after {
 .open .arrow::before {
   left: -0.5rem;
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 
 .open .arrow::after {
   left: 0.5rem;
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
 }
 
 .total-likes-container {

@@ -25,16 +25,16 @@ fetch(linkData)
         sort.children.item(1).addEventListener("click", () => displayPhotographerMedia(data.media, "date"));
         //Charger la liste des medias trier par titre en cliquant si dessus
         sort.children.item(2).addEventListener("click", () => displayPhotographerMedia(data.media, "titre"));
-        //Afficher le photographer sélectionné
+        //Afficher les inforamations du photographer sélectionné
         displayPhotographerInfo(getPhotographerById(paramPhotographerId, data.photographers));
-        //Afficher le nom du photographer sélectionné sur le modal et le message de confirmation
+        //Afficher le nom du photographer sélectionné sur le modal 
         displayTitleModal(getPhotographerById(paramPhotographerId, data.photographers));
         //afficher les filtres
         displayFilterMenu(displayPhotographerMedia);
-        //afficher la liste des medias lié au photographe sélectionné
+        //afficher le nombre de likes total lié au photographe sélectionné
         displayInfo(getPhotographerById(paramPhotographerId, data.photographers), getMediaPhotographer(paramPhotographerId, data.media));
     });
-
+//retouner le photographer sélectionné
 function getPhotographerById(id, listPhotographer) {
     var photographerFound = null;
     listPhotographer.forEach(photographer => {
@@ -44,7 +44,7 @@ function getPhotographerById(id, listPhotographer) {
     });
     return photographerFound;
 }
-
+//retourner le media avec l'id sélectionné
 function getMediaPhotographer(id, medias) {
     var mediaFound = [];
     medias.forEach(media => {
@@ -54,7 +54,7 @@ function getMediaPhotographer(id, medias) {
     });
     return mediaFound;
 }
-
+//afficher le header de la page des photographers
 function displayPhotographerInfo(photographer) {
     photographerName.innerHTML = photographer.name;
     photographerCityCountry.innerHTML = photographer.city + ", " + photographer.country;
@@ -62,15 +62,16 @@ function displayPhotographerInfo(photographer) {
     photographerPortrait.setAttribute("src", "assets/Sample Photos/Photographers_ID_Photos/" + photographer.portrait);
     photographerPortrait.setAttribute("alt", photographer.name);
 }
-
+//afficher le nom du photographer sur la modal
 function displayTitleModal(photographer) {
     const modalTitle = document.querySelector(".modalTitle");
     modalTitle.innerHTML = "Contactez-moi <br>" + photographer.name;
 }
-
+//afficher la liste des medias filtré
 export default function displayPhotographerMedia(medias, filterType) {
     var filterData = [];
     document.querySelector(".photographersId").innerHTML = "";
+        // teste si le média actuel a pour une photographie identique à paramphotographerid
     medias.forEach(media => {
         if (media.photographerId == paramPhotographerId) {
             filterData.push(media);
@@ -78,13 +79,12 @@ export default function displayPhotographerMedia(medias, filterType) {
     })
     filterData = getMediaList(filterData, filterType);
     filterData.forEach((media, index) => {
-        // teste si le média actuel a pour une photographie identique à paramphotographerid
         // appel du factory pour afficher le media respectant la condition dans le DOM
         photographerMediaFactory(media, filterData, index);
 
     })
 }
-
+//afficher une icone avec le nombre de likes total et le prix par jour
 function displayInfo(currentPhotographer, medias) {
     const totalLikesContainer = document.createElement("div");
     const priceContainer = document.createElement("div");
@@ -107,7 +107,7 @@ function displayInfo(currentPhotographer, medias) {
     totalLikesContainer.append(totalLikesNb, priceContainer);
     main.appendChild(totalLikesContainer);
 }
-
+//retouner le media filtré 
 function getMediaList(localMediaList, critaire) {
     var elementA;
     var elementB;

@@ -16,13 +16,23 @@ function photographerMediaFactory(media, medias, index) {
   titleHeart.classList.add("fa-heart");
   heartLink.classList.add("heart_Link");
   cardsMediaImg.classList.add("cards-media-img");
+  cardsMediaImg.setAttribute("role", "button");
+  cardsMediaImg.setAttribute("title", media.title);
+  cardsMediaImg.setAttribute("aria-describedby", "ouvrir le slider");
+  cardsMediaImg.href = "#";
   cardsMediaImg.setAttribute("tabindex", "0");
   heartLink.setAttribute("tabindex", "0");
   compteur.innerHTML = media.likes;
   imageTitle.innerHTML = media.title;
   photographerCards.classList.add("photographer-cards");
+  photographerCards.setAttribute("lang","en-GB");
   nbLikes.classList.add("nb_likes");
+  heartLink.setAttribute("aria-label","aimer cette page");
+  heartLink.setAttribute("role","button");
+  heartLink.setAttribute("tabindex","0");
   compteur.classList.add("compteur");
+  compteur.setAttribute("aria-label",`Nombre de likes ${media.likes}`);
+  compteur.setAttribute("tabindex","0");
   cardsTitle.classList.add("cards-title");
   heartLink.appendChild(titleHeart);
   nbLikes.append(compteur, heartLink);
@@ -47,14 +57,14 @@ function photographerMediaFactory(media, medias, index) {
   const isImage = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
   if (isImage) {
     imagePhotographer.src = `./assets/Sample Photos/medias/${media.image}`;
-    imagePhotographer.setAttribute("alt", media.title);
+    imagePhotographer.setAttribute("alt", "");
     imagePhotographer.classList.add("cardsImg");
     cardsMediaImg.appendChild(imagePhotographer);
   }
   else if (isVideo) {
     const source = document.createElement("source");
     source.setAttribute("src", `./assets/Sample Photos/medias/${media.video}`);
-    source.setAttribute("alt", media.title);
+    source.setAttribute("alt", "");
     videoPhotographer.append(source);
     videoPhotographer.classList.add("cardsImg");
     cardsMediaImg.appendChild(videoPhotographer);

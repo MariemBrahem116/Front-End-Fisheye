@@ -10,9 +10,12 @@
   </head>
   <body>
     <main id="main">
-      <header class="logo-Header">
-      <img src="assets/images/logo.png" class="logo" alt="logo_img"/>
-    </header>
+      <div class="logo-Header" >
+        <a href="./index.html" class="logoEyeFish"  autofocus >
+          <img src="assets/images/logo.png" class="logo"  alt="" aria-label="retour à la page d'accueil"  />
+        </a>
+        
+      </div>
       <div class="photograph-header">
         <div class="photographerInfo">
           <h1 id="photographerName"></h1>
@@ -45,38 +48,39 @@
         
       </section>
     </main>
-    <div id="contact_modal" >
-			<div class="modal">
+    <section id="contact_modal">
+			<div class="modal" >
 				<header>
           <h3 class="modalTitle"></h3>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="icon" />
+          <img src="assets/icons/close.svg" class="closeModal" onclick="closeModal()" alt="icon" tabindex="0"/>
         </header>
         <form class="modal-form" id="contact">
           <div class="formData " data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
             <label for="prenom">Prénom</label>
-            <input class="firstName-inp" id="prenom" type="text" name="first-Name" placeholder="Prénom"/>
+            <input class="firstName-inp" id="prenom" type="text" name="first-Name" placeholder="Prénom" aria-label="entrer votre prénom" aria-required="true" value=""/>
           </div>
           <div class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
             <label for="nom">Nom</label>
-            <input class="lastName-inp" id="nom" type="text" name="last-Name" placeholder="Nom"/>
+            <input class="lastName-inp" id="nom" type="text" name="last-Name" placeholder="Nom" aria-label="entrer votre nom" aria-required="true" value=""/>
           </div>
           <div class="formData" data-error="Vous devez entrer un Email valide !">
             <label for="email">Email<br /></label>
-            <input class="email-inp" id="email" type="email" name="email" placeholder="Email" />
+            <input class="email-inp" id="email" type="email" name="email" placeholder="Email" aria-label="entrer votre mail" aria-required="true" value=""/>
           </div>
           <div class="formData" data-error="Vous devez remplir cette case!">
             <label for="msg">Votre Message<br /></label>
-            <input class="msg-inp" id="msg" name="message" placeholder="Message" />
+            <input class="msg-inp" id="msg" name="message" placeholder="Message" aria-label="entrer votre message" aria-required="true"value=""/>
          </div>
           <button class="contact_button" type="submit" value="Envoyer" name="Email">Envoyer</button>
         </form>
-    </div>
-		</div>
-    <section class="lightbox" role="dialog" aria-label="lightbox modal">
+      </div>
+      <div class="modalDialog"></div>
+		</section>
+    <section class="lightbox" role="dialog" aria-label="lightbox modal" tabindex="0">
       <div class="lightbox-windows">
         <ul class="container-slides"></ul>
-        <div class="commandes">
-          <button class="left" aria-label="media precedent">
+        <div class="commandes" >
+          <button class="left" aria-label="media precedent" >
             <em class="fas fa-chevron-left"></em>
           </button>
           <button class="right" aria-label="media suivant">
@@ -89,7 +93,7 @@
         </div>
       </div>
     </section>
-    <script type="module" src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

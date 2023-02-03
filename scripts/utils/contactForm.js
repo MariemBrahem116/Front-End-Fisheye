@@ -4,11 +4,20 @@ const logoHeader = document.querySelector(".logo-Header");
 const modal = document.getElementById("contact_modal");
 const containerInput = document.querySelectorAll(".formData");
 const form = document.querySelector(".modal-form");
+const prenom = document.getElementById("prenom");
+const modalDialog = document.querySelector(".modalDialog");
 
 function displayModal() {
     modal.style.display = "block";
+    prenom.focus();
+    modalDialog.style.display = "block";
 }
-
+modal.addEventListener("keydown", (e) => {
+    //Fermer la light box via ESC
+    if (e.code === "Escape") {
+        modal.style.display = "none";
+    }
+});
 function closeModal() {
     modal.style.display = "none";
 }
@@ -92,18 +101,50 @@ class validate {
                 default:
                     break;
             }
+        
         }
+        
         return this.valid;
     }
 }
 // Valider le formulaire en cas de remplissage de donnée sans erreur
 const validator = new validate(inputs, containerInput);
+modal.addEventListener("keydown", (e) => {
+    //Fermer la light box via ESC
+    if (e.code === "Enter") {
+        modal.onsubmit = (e) => {
+            e.preventDefault();
+            if (validator.launchValidation()) {
+                const prenom = document.getElementById("prenom").value;
+                const nom = document.getElementById("nom").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("msg").value;
+                form.reset();
+                modal.style.display = "none";
+                console.log ("Prénom : "+prenom)
+                console.log ("Nom : " + nom)
+                console.log("Email : " +email)
+                console.log("Message : " + message);
+            }
+        }
+        
+        
+        
+    }
+});
 modal.onsubmit = (e) => {
     e.preventDefault();
     if (validator.launchValidation()) {
+        const prenom = document.getElementById("prenom").value;
+        const nom = document.getElementById("nom").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("msg").value;
         form.reset();
         modal.style.display = "none";
-        console.log("Votre message a été bien envoyé.")
+        console.log ("Prénom : "+prenom)
+        console.log ("Nom : " + nom)
+        console.log("Email : " +email)
+        console.log("Message : " + message);
     }
 }
 

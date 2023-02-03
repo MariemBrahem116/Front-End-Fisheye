@@ -5,6 +5,13 @@ fetch(linkData)
   .then((resp) => resp.json())
   .then((data) => displayPhotographers(data.photographers));
 //afficher les des photographers ainsi leur caractéristiques  
-function displayPhotographers(photographers) {
-  photographers.forEach((photographer) =>  photographerFactory(photographer));
+async function displayPhotographers(photographers) {
+  const main = document.getElementById("main");
+  const photgraphersection = document.querySelector(".photographer_section");
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer);
+    const userCardDom = photographerModel.getUserCardDOM();
+    photgraphersection.appendChild(userCardDom);
+    main.appendChild(photgraphersection);
+  });
 }

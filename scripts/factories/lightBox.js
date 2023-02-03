@@ -14,18 +14,19 @@ function closelightbox() {
   lightboxModal.style.display = "none";
   main.style.display = "block";
 }
-
+//charger le media suivant
 function displayContent(medias, indexI) {
   appendlightBoxContent(medias[indexI]);
   // Charger le media suivant  
-  next.addEventListener("click", ()=>{
-    if(medias.length < indexI + 1){
+  next.addEventListener("click",()=>{
+   
+    if(medias.length <= indexI + 1 ){
       indexI = 0;
     }
     else{
-      indexI += 1;
+      indexI += 1; 
     }
-    appendlightBoxContent(medias[indexI++]);
+    appendlightBoxContent(medias[indexI]);
   });
   //Charger le media précedent
   previous.addEventListener("click", ()=>{
@@ -35,7 +36,7 @@ function displayContent(medias, indexI) {
     else{
       indexI -= 1;
     }
-    appendlightBoxContent(medias[indexI--]);
+    appendlightBoxContent(medias[indexI]);
   });
   closeBtn.addEventListener("click", closelightbox);
   lightboxModal.addEventListener("keydown", (e) => {
@@ -48,14 +49,14 @@ function displayContent(medias, indexI) {
       if(medias.length < indexI + 1){
         indexI = 0;
       }
-      appendlightBoxContent(medias[indexI++]);
+      appendlightBoxContent(medias[indexI]);
     }
     //Charger le media précedent via le clavier
     if (e.code === "ArrowLeft") {
       if( indexI - 1 < 0){
         indexI = medias.length - 1 ;
       }
-      appendlightBoxContent(medias[indexI--]);
+      appendlightBoxContent(medias[indexI]);
     }
   });
 
@@ -63,6 +64,7 @@ function displayContent(medias, indexI) {
 
 //Récupérer les medias et les tester
 function appendlightBoxContent(media){
+  previous.focus();
   const isVideo = (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.video);
   const isImage = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
   slideContainer.innerHTML = "";
