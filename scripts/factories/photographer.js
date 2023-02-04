@@ -20,7 +20,6 @@ export default function photographerFactory(photographer) {
         cardTagline.classList.add("cards-tagline");
         cardPrice.classList.add("cards-price");
         cardBody.classList.add("cards-body");
-        cardLink.setAttribute("role", "link");
         cardLink.href = linkToPage;
         cardImg.setAttribute("src", linkToPhoto);
         cardImg.setAttribute("alt", "");
@@ -33,8 +32,7 @@ export default function photographerFactory(photographer) {
         cardBody.appendChild(cardPrice);
         cardLink.appendChild(cardImg);
         cardLink.appendChild(cardTitle);
-        cardPhtographers.appendChild(cardLink);
-        cardPhtographers.appendChild(cardBody);
+        cardPhtographers.append(cardLink,cardBody);
         return(cardPhtographers)
     }
     return {linkToPage,linkToPhoto,name,id,city,country,tagline,price,getUserCardDOM}

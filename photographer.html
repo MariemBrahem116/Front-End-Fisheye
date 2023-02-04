@@ -8,21 +8,20 @@
     <script src="https://kit.fontawesome.com/70f41f18b3.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title> 
   </head>
-  <body>
+  <body >
     <main id="main">
       <div class="logo-Header" >
         <a href="./index.html" class="logoEyeFish"  autofocus >
-          <img src="assets/images/logo.png" class="logo"  alt="" aria-label="retour à la page d'accueil"  />
+          <img src="assets/images/logo.png" class="logo"  alt="retour à la page d'accueil" />
         </a>
-        
       </div>
       <div class="photograph-header">
         <div class="photographerInfo">
-          <h1 id="photographerName"></h1>
+          <h1 id="photographerName" tabindex="0"></h1>
           <p id="photographerCityCountry"></p>
           <p id="photographerTagline"></p>
         </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" click="displayModal()">Contactez-moi</button>
         <img id="photographerPortrait">
       </div>
       <section class="filter">
@@ -52,7 +51,7 @@
 			<div class="modal" >
 				<header>
           <h3 class="modalTitle"></h3>
-          <img src="assets/icons/close.svg" class="closeModal" onclick="closeModal()" alt="icon" tabindex="0"/>
+          <img src="assets/icons/close.svg" id="closeModal" class="closeModal" click="closeModal()" alt="fermer la modal" role="button" tabindex="0"/>
         </header>
         <form class="modal-form" id="contact">
           <div class="formData " data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">

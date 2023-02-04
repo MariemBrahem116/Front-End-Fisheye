@@ -1,26 +1,32 @@
 //Elements DOM
-const photgraphHeader = document.querySelector(".photograph-header");
-const logoHeader = document.querySelector(".logo-Header");
 const modal = document.getElementById("contact_modal");
 const containerInput = document.querySelectorAll(".formData");
 const form = document.querySelector(".modal-form");
 const prenom = document.getElementById("prenom");
 const modalDialog = document.querySelector(".modalDialog");
-
-function displayModal() {
+const contactButton = document.querySelector(".contact_button")
+const closeModalDom = document.getElementById("closeModal");
+contactButton.addEventListener("click",  ()=> {
     modal.style.display = "block";
-    prenom.focus();
+    closeModalDom.focus();
     modalDialog.style.display = "block";
-}
+}) ;
+
 modal.addEventListener("keydown", (e) => {
     //Fermer la light box via ESC
     if (e.code === "Escape") {
         modal.style.display = "none";
     }
 });
-function closeModal() {
+closeModalDom.addEventListener("click",()=>{
     modal.style.display = "none";
-}
+
+})
+closeModall.addEventListener("keydown", (e) =>{
+    if(e.code === "Enter"){
+        modal.style.display = "none";
+    }
+})
 
 //Accéder à toutes les entrées et paramétrer la validation
 //Indiquer si l'expression régulière trouve une correspondance dans la chaîne d'entrée
@@ -35,7 +41,7 @@ const inputs = {
     },
     email: {
         element: document.querySelector("#email"),
-        regex: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
 
     message: {

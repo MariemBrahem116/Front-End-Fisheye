@@ -19,7 +19,7 @@ function displayContent(medias, indexI) {
   appendlightBoxContent(medias[indexI]);
   // Charger le media suivant  
   next.addEventListener("click",()=>{
-   
+    next.focus();
     if(medias.length <= indexI + 1 ){
       indexI = 0;
     }

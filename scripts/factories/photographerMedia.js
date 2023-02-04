@@ -2,7 +2,7 @@ const lightBox = document.querySelector(".lightbox");
 import { displayContent } from "../factories/lightBox.js";
 function photographerMediaFactory(media, medias, index) {
   const photographers = document.querySelector(".photographersId");
-  const imageTitle = document.createElement('h4');
+  const imageTitle = document.createElement("p");
   const imagePhotographer = document.createElement("img");
   const videoPhotographer = document.createElement("video");
   const cardsMediaImg = document.createElement("a");
@@ -25,7 +25,6 @@ function photographerMediaFactory(media, medias, index) {
   compteur.innerHTML = media.likes;
   imageTitle.innerHTML = media.title;
   photographerCards.classList.add("photographer-cards");
-  photographerCards.setAttribute("lang","en-GB");
   nbLikes.classList.add("nb_likes");
   heartLink.setAttribute("aria-label","aimer cette page");
   heartLink.setAttribute("role","button");
@@ -36,10 +35,8 @@ function photographerMediaFactory(media, medias, index) {
   cardsTitle.classList.add("cards-title");
   heartLink.appendChild(titleHeart);
   nbLikes.append(compteur, heartLink);
-  cardsTitle.appendChild(imageTitle);
-  cardsTitle.appendChild(nbLikes);
-  photographerCards.appendChild(cardsMediaImg);
-  photographerCards.appendChild(cardsTitle);
+  cardsTitle.append(imageTitle,nbLikes);
+  photographerCards.append(cardsMediaImg,cardsTitle);
   photographers.appendChild(photographerCards);
   nbLikes.addEventListener("click", function () {
     media.likes++;

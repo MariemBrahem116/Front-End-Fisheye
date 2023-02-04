@@ -182,7 +182,7 @@ input[data-error]::after {
   overflow: hidden;
 }
 
-.cards-title h4 {
+.cards-title p {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
