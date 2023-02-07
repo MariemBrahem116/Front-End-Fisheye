@@ -28,6 +28,18 @@ function displayContent(medias, indexI) {
     }
     appendlightBoxContent(medias[indexI]);
   });
+  next.addEventListener("keydown",(e)=>{
+    if(e.code==="Enter"){
+      next.focus();
+    if(medias.length <= indexI + 1 ){
+      indexI = 0;
+    }
+    else{
+      indexI += 1; 
+    }
+    appendlightBoxContent(medias[indexI]);
+    }
+  });
   //Charger le media précedent
   previous.addEventListener("click", ()=>{
     previous.focus();
@@ -39,8 +51,25 @@ function displayContent(medias, indexI) {
     }
     appendlightBoxContent(medias[indexI]);
   });
-
+  previous.addEventListener("keydown", (e)=>{
+    if(e.code==="Enter"){
+      previous.focus();
+    if( indexI - 1 < 0){
+      indexI = medias.length - 1 ;
+    }
+    else{
+      indexI -= 1;
+    }
+    appendlightBoxContent(medias[indexI]);
+    }
+  });
+  previous.focus();
   closeBtn.addEventListener("click", closelightbox);
+  closeBtn.addEventListener("keydown", (e) =>{
+    if(e.code==="Enter"){
+      closelightbox();
+    }
+  });
   lightboxModal.addEventListener("keydown", (e) => {
     //Fermer la light box via ESC
     if (e.code === "Escape") {

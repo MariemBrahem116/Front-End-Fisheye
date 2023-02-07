@@ -618,25 +618,25 @@ form input {
   color: #901c1c;
 }
 
-.lightbox .lightbox-windows .commandes button:nth-child(1) {
+.lightbox .lightbox-windows .commandes span:nth-child(1) {
   top: 40%;
   -webkit-transform: translate(-50%);
   transform: translate(-50%);
   left: 10%;
 }
 
-.lightbox .lightbox-windows .commandes button:nth-child(1) em {
+.lightbox .lightbox-windows .commandes span:nth-child(1) em {
   left: -10px;
 }
 
-.lightbox .lightbox-windows .commandes button:nth-child(2) {
+.lightbox .lightbox-windows .commandes span:nth-child(2) {
   top: 40%;
   -webkit-transform: translate(50%);
   transform: translate(50%);
   right: 7%;
 }
 
-.lightbox .lightbox-windows .commandes button:nth-child(2) em {
+.lightbox .lightbox-windows .commandes span:nth-child(2) em {
   right: 7%;
 }
 
