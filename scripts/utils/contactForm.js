@@ -2,7 +2,6 @@
 const modal = document.getElementById("contact_modal");
 const containerInput = document.querySelectorAll(".formData");
 const form = document.querySelector(".modal-form");
-const prenom = document.getElementById("prenom");
 const modalDialog = document.querySelector(".modalDialog");
 const contactButton = document.querySelector(".contact_button")
 const closeModalDom = document.getElementById("closeModal");
@@ -22,7 +21,7 @@ closeModalDom.addEventListener("click",()=>{
     modal.style.display = "none";
 
 })
-closeModall.addEventListener("keydown", (e) =>{
+closeModalDom.addEventListener("keydown", (e) =>{
     if(e.code === "Enter"){
         modal.style.display = "none";
     }

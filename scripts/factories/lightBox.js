@@ -30,6 +30,7 @@ function displayContent(medias, indexI) {
   });
   //Charger le media précedent
   previous.addEventListener("click", ()=>{
+    previous.focus();
     if( indexI - 1 < 0){
       indexI = medias.length - 1 ;
     }
@@ -38,6 +39,7 @@ function displayContent(medias, indexI) {
     }
     appendlightBoxContent(medias[indexI]);
   });
+
   closeBtn.addEventListener("click", closelightbox);
   lightboxModal.addEventListener("keydown", (e) => {
     //Fermer la light box via ESC
@@ -59,12 +61,10 @@ function displayContent(medias, indexI) {
       appendlightBoxContent(medias[indexI]);
     }
   });
-
 }
 
 //Récupérer les medias et les tester
 function appendlightBoxContent(media){
-  previous.focus();
   const isVideo = (/\.(mp4|3gp|ogg|wmv|webm|flv|avi*|wav|vob*)$/i).test(media.video);
   const isImage = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(media.image);
   slideContainer.innerHTML = "";
