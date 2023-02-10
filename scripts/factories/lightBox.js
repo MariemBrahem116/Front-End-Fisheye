@@ -77,17 +77,26 @@ function displayContent(medias, indexI) {
     }
     //Charger le media suivant via le clavier
     if (e.code === "ArrowRight") {
-      if(medias.length < indexI + 1){
-        indexI = 0;
-      }
-      appendlightBoxContent(medias[indexI]);
+      next.focus();
+    if(medias.length <= indexI + 1 ){
+      indexI = 0;
     }
+    else{
+      indexI += 1; 
+    }
+    appendlightBoxContent(medias[indexI]);
+    }
+    
     //Charger le media précedent via le clavier
     if (e.code === "ArrowLeft") {
-      if( indexI - 1 < 0){
-        indexI = medias.length - 1 ;
-      }
-      appendlightBoxContent(medias[indexI]);
+      previous.focus();
+    if( indexI - 1 < 0){
+      indexI = medias.length - 1 ;
+    }
+    else{
+      indexI -= 1;
+    }
+    appendlightBoxContent(medias[indexI]);
     }
   });
 }
